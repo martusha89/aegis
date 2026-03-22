@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEGIS</title>
+  <link rel="stylesheet" href="../node_modules/@xterm/xterm/css/xterm.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- HUD Canvas — animated background -->
+  <canvas id="hud-canvas"></canvas>
+
+  <!-- Title bar -->
+  <div id="titlebar">
+    <div id="titlebar-drag">
+      <span class="aegis-logo">&#x2B21; AEGIS</span>
+      <span class="aegis-status" id="status-text">INITIALIZING</span>
+    </div>
+    <div id="titlebar-controls">
+      <button class="tb-btn" id="btn-voice" title="Toggle voice mode (/voice)">&#x1F399;</button>
+      <button class="tb-btn" id="btn-opacity" title="Toggle transparent / dark mode">&#x25D1;</button>
+      <button class="tb-btn" id="btn-min" title="Minimize">&#x2500;</button>
+      <button class="tb-btn" id="btn-max" title="Maximize">&#x25A1;</button>
+      <button class="tb-btn tb-close" id="btn-close" title="Close">&#x2715;</button>
+    </div>
+  </div>
+
+  <!-- HUD frame elements -->
+  <div id="hud-frame">
+    <div class="hud-corner top-left"></div>
+    <div class="hud-corner top-right"></div>
+    <div class="hud-corner bottom-left"></div>
+    <div class="hud-corner bottom-right"></div>
+    <div class="hud-edge top"></div>
+    <div class="hud-edge bottom"></div>
+    <div class="hud-edge left"></div>
+    <div class="hud-edge right"></div>
+  </div>
+
+  <!-- Side panels -->
+  <div id="left-panel" class="side-panel">
+    <div class="panel-header">SYS STATUS</div>
+    <div class="panel-item"><span class="label">CORE</span><span class="value online">ACTIVE</span></div>
+    <div class="panel-item"><span class="label">LINK</span><span class="value" id="link-status">STANDBY</span></div>
+    <div class="panel-item"><span class="label">VOICE</span><span class="value" id="voice-status">READY</span></div>
+    <div class="panel-meter">
+      <div class="meter-bar" id="activity-bar"></div>
+    </div>
+  </div>
+
+  <div id="right-panel" class="side-panel">
+    <div class="panel-header">SESSION</div>
+    <div class="panel-item"><span class="label">UPTIME</span><span class="value" id="uptime">00:00:00</span></div>
+    <div class="panel-item"><span class="label">TOKENS</span><span class="value" id="tokens">&mdash;</span></div>
+    <div class="panel-item"><span class="label">MODEL</span><span class="value" id="model">CLAUDE</span></div>
+  </div>
+
+  <!-- Terminal container -->
+  <div id="terminal-container">
+    <div id="terminal"></div>
+  </div>
+
+  <!-- Waveform bar (bottom) -->
+  <div id="waveform-bar">
+    <canvas id="waveform-canvas"></canvas>
+  </div>
+
+  <!-- Load xterm + addons as UMD scripts -->
+  <script src="../node_modules/@xterm/xterm/lib/xterm.js"></script>
+  <script src="../node_modules/@xterm/addon-fit/lib/addon-fit.js"></script>
+  <!-- WebGL addon disabled — using canvas renderer for Windows transparency -->
+  <script src="app.js"></script>
+</body>
+</html>
