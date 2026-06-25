@@ -1,4 +1,12 @@
-# AEGIS
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:8B5CF6,100:22D3EE&height=170&section=header&text=AEGIS&fontColor=ffffff&fontSize=52&fontAlignY=40&desc=A%20JARVIS-style%20HUD%20shell%20for%20Claude%20Code&descSize=17&descAlignY=64" width="100%" />
+
+[![Electron](https://img.shields.io/badge/Electron-47848F?style=for-the-badge&logo=electron&logoColor=white)](#)
+[![license MIT](https://img.shields.io/badge/license-MIT-A855F7?style=for-the-badge)](LICENSE)
+[![platform Windows](https://img.shields.io/badge/platform-Windows-22D3EE?style=for-the-badge&logo=windows&logoColor=white)](#)
+
+</div>
 
 A JARVIS-style HUD shell for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Wraps the Claude Code CLI in an Electron app with animated holographic visuals, live data panels, and a sci-fi terminal experience.
 
